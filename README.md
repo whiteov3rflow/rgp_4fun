@@ -11,3 +11,23 @@ Some ideas include:
     A classic mini-RPG (role-playing game) with hp health points, character moves like attack/block/heal, and NPCs (non-player characters) that attacks based on a random number generator.
 
 ## The Game Theory
+
+Here i will break down how the game consist, how the history will be
+This is story of a young prince from Mali, who's fighting for is life with assaulters that came from another continent
+
+### Main Characters
+- The prince can attack, defend, earn points after beating an assaulter. He can also heal, quit the game if he want 
+When the game start the Prince had 100 of pv(pv is how the player health will be represented in the game).
+
+The player has three type of attack:
+- Basic
+- Powerfull
+- Special attack
+The player can receive three types attack:
+- Basic
+- Powerfull
+- Fatal attack
+## TO-DO
+- Make a better game logic 
+- Re-define the code
+- Make a command parsers function for the game
