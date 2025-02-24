@@ -1,3 +1,5 @@
 from libs import player
 
-player.Start()
+if __name__ == '__main__':
+
+    player.Start()

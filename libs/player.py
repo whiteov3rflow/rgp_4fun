@@ -1,6 +1,5 @@
 
-import random
-import pyfiglet
+import random,pyfiglet, argparse
 
 
 # game name
@@ -19,6 +18,14 @@ def Start():
         Initialize()
     else:
         print("Good bye")
+
+def get_args():
+    """
+    This function define the how the arguments should be parsed
+    """
+    parser = argparse.ArgumentParser(
+        prog=''
+    )
             
 def Initialize():
     """

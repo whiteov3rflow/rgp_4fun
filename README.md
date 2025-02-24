@@ -31,3 +31,7 @@ The player can receive three types attack:
 - Make a better game logic 
 - Re-define the code
 - Make a command parsers function for the game
+## Suggestion
+- The inputs are a little inconsistent since the player needs to use a mix of upper and lower case letters depending on the menu. You can use .lower() to help sanitize input from the player to avoid this.
+- Remember to use lower_snake_case for variable names unless you are defining constants.
+- Right now the game is a little unbalanced since the enemy may not get a turn.
