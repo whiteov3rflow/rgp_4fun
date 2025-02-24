@@ -28,10 +28,10 @@ The player can receive three types attack:
 - Powerfull
 - Fatal attack
 ## TO-DO
-- Make a better game logic 
-- Re-define the code
-- Make a command parsers function for the game
+- Make a better game logic [WIP]
+- Re-define the code [WIP]
+- Make a command parsers function for the game [WIP]
 ## Suggestion
-- The inputs are a little inconsistent since the player needs to use a mix of upper and lower case letters depending on the menu. You can use .lower() to help sanitize input from the player to avoid this.
-- Remember to use lower_snake_case for variable names unless you are defining constants.
-- Right now the game is a little unbalanced since the enemy may not get a turn.
+- The inputs are a little inconsistent since the player needs to use a mix of upper and lower case letters depending on the menu. You can use .lower() to help sanitize input from the player to avoid this. [WD]
+- Remember to use lower_snake_case for variable names unless you are defining constants. [WD]
+- Right now the game is a little unbalanced since the enemy may not get a turn.[WIP]

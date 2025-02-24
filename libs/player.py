@@ -1,5 +1,6 @@
 
 import random,pyfiglet, argparse
+from libs import npc
 
 
 # game name
@@ -8,92 +9,69 @@ def Banner():
     ascii_banner = pyfiglet.figlet_format(game_banner)
     print(ascii_banner)
 
-
-def Start():
-     
+def Start():     
     Banner()
-    # Asking the use if he want to play or not
-    choice  =input('Do you want to start the game ? ').lower()
-    if choice in ['Y','Yes', 'y', 'yes'] :
+    # Asking the user if he want to play or not
+    choice = input('Do you want to start the game ? ')
+
+    if choice.lower() == "y" or "yes" :
         Initialize()
     else:
         print("Good bye")
 
-def get_args():
-    """
-    This function define the how the arguments should be parsed
-    """
-    parser = argparse.ArgumentParser(
-        prog=''
-    )
-            
 def Initialize():
     """
 This is a codebase for the player and the methods used by him
 
 """
-    FLAG = "insec{34sy_7h3_g4m3_w4s_1337}"
+    SECRET = "Enjoy the moment "
     HP = 100
     NPC_HP = 100
     POINTS = 0
     ATTACK_LIMITS = 0
     ACTIONS = ['attack', 'defend','heal']
-    PLAYER_ATTACKS = ["Basic","Powerfull","Fatal"]
+    PLAYER_ATTACKS = {"Basic":10,"Powerfull":50,"Fatal":100}
     START = True
-    BANDIT_ATTACKS = ["Basic","Powerfull","Fatal"]
+    BANDIT_ATTACKS = {"Basic":10,"Powerfull":50,"Fatal":100}
     name = input(str("Type your character name: "))
-    print("Welcome player: {}. Try to survive from the Conquerors".format(name))
-    while START:
+    print(f"Welcome player: {name}. Try to survive from the Conquerors")
+    while START and ATTACK_LIMITS <= 3:
         choice = input(f"What action you want to do from this list: {ACTIONS}: ")
         # the player is choising which action to perform
         if choice == 'attack':
-            #while ATTACK_LIMITS <= 4 and NPC_HP :
-            print(f"Here are you attacks list: {PLAYER_ATTACKS}")
-            player_attack = input('Which attack you want to perform: ')
-            if player_attack == PLAYER_ATTACKS[0]:
+            #while ATTACK_LIMITS <= 3 and NPC_HP :
+            print(f"Here are you attacks list: {list(PLAYER_ATTACKS.keys())}")
+            player_attack = random.choice(list(PLAYER_ATTACKS.keys()))
+            if player_attack:
                 #adding points for player and respectively descrease it from the NPC 
-                NPC_HP -= 10
+                NPC_HP -= PLAYER_ATTACKS[player_attack]
                 ATTACK_LIMITS += 1
-                POINTS += 10
-                print("You damage the ennemy with {}".format(PLAYER_ATTACKS[0]))
-                print("Your ennemy have {} HP".format(NPC_HP))
-            elif player_attack == PLAYER_ATTACKS[1]:            
-                NPC_HP -= 50
-                ATTACK_LIMITS += 1
-                POINTS += 50
-                print("You damage the ennemy with {}".format(PLAYER_ATTACKS[1]))
-                print("Your ennemy have {} HP".format(NPC_HP))
+                POINTS += PLAYER_ATTACKS[player_attack]
+                print(f"You damage the ennemy with {player_attack} attack 🚀​")
+                print(f"Your ennemy have {NPC_HP} HP")
+                if NPC_HP <= 0:
+                    print(f"You won the game is a quotes {SECRET}")
+                    break
+                else:
+                    pass
             else:
-                print("Please choose an attack")
+                print("Please choose an attack 🦂​")
                 break
-            # defining the NPC attack logic
-            # todo when defend it's lead to infinite loops
-        elif choice == 'defend':
-                # getting a random attack for the NPC
-            ennemy_attack = random.choice(BANDIT_ATTACKS)
-            print(f"The bandit is attacking with a: {ennemy_attack} technic")
-            if ennemy_attack == BANDIT_ATTACKS[0]:
-                HP -= 10
-                ATTACK_LIMITS += 1
-                print("Your HP is {} and you have {} left".format(HP,ATTACK_LIMITS))
-            elif ennemy_attack == BANDIT_ATTACKS[1]:
-                HP -= 50
-                ATTACK_LIMITS += 1
-                print("Your HP is {} and you have {} left".format(HP,ATTACK_LIMITS))
-            elif HP == 0:
-                print('You lose the game ')
+            # To-Do: re-implement this as a function and import it 
+        elif choice == "defend":
+            ennemy_attack = random.choice(list(BANDIT_ATTACKS.keys())) # get the key from the bandit_attacks dict
+            retrieve_healh = BANDIT_ATTACKS[ennemy_attack]  # store ennemy_attack key value and deduct it from player_hp
+            HP -= retrieve_healh
+            if HP > 0:
+                print(f"Your HP is {HP} and the bandits hit you with {ennemy_attack} attack 🦂 ")
             else:
-                print("You lose again the Boss he perform {} attack".format(ennemy_attack[2]))
-                START = False
-        
+                print(f"The bandit performed {ennemy_attack} attack 🦂 and your HP is {HP}")
+                break
+                
         elif choice == 'heal':
-             print('This function is under construction...')
+             print('This function is under construction... 🏗️​')
         else:
             START = False
+
     else:
         pass
-
-
-    
-
-
