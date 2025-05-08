@@ -1,9 +1,22 @@
 # import player
+import random
 
-def npc_attack() -> str:
-    """funtion that allow npc player to attack the player
+class Npc():
+    
+    def __init__(self):
+        self.hp = 100
+        self.attacks = {"Basic":10,"Powerfull":50,"Fatal":100}    
 
-    Returns:
-        str: _description_
-    """
-    pass
+    def get_hp(self) -> int:
+        """ Getter for the npc hp"""
+        #print("[+] Getting the HP of the NPC")
+        return self.hp
+    
+    def get_attacks(self) -> int:
+        """
+        This function get a random attacks from the dict
+        """
+        return random.choice(list(self.attacks.values()))
+ 
+
+# npc = Npc()

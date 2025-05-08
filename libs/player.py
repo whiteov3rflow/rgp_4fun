@@ -24,7 +24,7 @@ def Initialize():
 This is a codebase for the player and the methods used by him
 
 """
-    SECRET = "Enjoy the moment "
+    SECRET = "Peace and Love"
     HP = 100
     NPC_HP = 100
     POINTS = 0
@@ -33,12 +33,17 @@ This is a codebase for the player and the methods used by him
     PLAYER_ATTACKS = {"Basic":10,"Powerfull":50,"Fatal":100}
     START = True
     BANDIT_ATTACKS = {"Basic":10,"Powerfull":50,"Fatal":100}
+    
     name = input(str("Type your character name: "))
+    
     print(f"Welcome player: {name}. Try to survive from the Conquerors")
+    
     while START and ATTACK_LIMITS <= 3:
+        count = 0
         choice = input(f"What action you want to do from this list: {ACTIONS}: ")
         # the player is choising which action to perform
         if choice == 'attack':
+            count+=1
             #while ATTACK_LIMITS <= 3 and NPC_HP :
             print(f"Here are you attacks list: {list(PLAYER_ATTACKS.keys())}")
             player_attack = random.choice(list(PLAYER_ATTACKS.keys()))
@@ -47,6 +52,7 @@ This is a codebase for the player and the methods used by him
                 NPC_HP -= PLAYER_ATTACKS[player_attack]
                 ATTACK_LIMITS += 1
                 POINTS += PLAYER_ATTACKS[player_attack]
+                
                 print(f"You damage the ennemy with {player_attack} attack 🚀​")
                 print(f"Your ennemy have {NPC_HP} HP")
                 if NPC_HP <= 0:
@@ -70,8 +76,13 @@ This is a codebase for the player and the methods used by him
                 
         elif choice == 'heal':
              print('This function is under construction... 🏗️​')
-        else:
+        elif choice ==  "bye":
             START = False
+            #break
+            
+        else:
+            print("Please make a choice is from the attacks list")
+        #print(count)
 
     else:
         pass
