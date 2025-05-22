@@ -1,4 +1,4 @@
-#!/home/rez/Desktop/30Nightsofcode/rgp_4fun/env/bin/python3
+#!/home/rez/rgp_4fun/env/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
