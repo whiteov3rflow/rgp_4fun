@@ -22,15 +22,15 @@ When the game start the Prince had 100 of pv(pv is how the player health will be
 The player has three type of attack:
 - Basic
 - Powerfull
-- Special attack
 The player can receive three types attack:
 - Basic
 - Powerfull
 - Fatal attack
 ## TO-DO
-- Make a better game logic [WIP]
-- Re-define the code [WIP]
-- Make a command parsers function for the game [WIP]
+- Make a better game logic [Done]
+- Re-define the code [Done]
+- Make a command parsers function for the game [x]
+- Implement multi-player mode to learn more about sockets
 ## Suggestion
 - The inputs are a little inconsistent since the player needs to use a mix of upper and lower case letters depending on the menu. You can use .lower() to help sanitize input from the player to avoid this. [WD]
 - Remember to use lower_snake_case for variable names unless you are defining constants. [WD]
